@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperion Executor - Unlock Your Full Potential</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <link rel="icon" href="https://kainoexecutor.com/images/logo.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <nav>
+                <a href="home" class="logo-link"><img src="images/Hyperion.png" alt="Hyperion Logo" class="logo"></a>
+                <ul>
+                    <li><a href="home" class="active">Home</a></li>
+                    <li><a href="developers">Developers</a></li>
+                    <li><a href="download">Download</a></li>
+                    <li><a href="showcases">Showcases</a></li>
+                </ul>
+            </nav>
+
+            <h1 class="title">Unlock Your Full Potential with Hyperion Executor</h1>
+            <p class="subtitle">Elevate your Roblox experience with the latest PC script executor.</p>
+
+            <section class="key-features">
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Level 7 Execution</li>
+                    <li>100% UNC</li>
+                    <li>0 Vulnerabilities</li>
+                    <li>Undetectable by Hyperion</li>
+                </ul>
+            </section>
+
+            <a href="download" class="cta-button">Download Now</a>
+
+            <section class="gallery">
+                <h2>Gallery</h2>
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img src="images/image1.png" alt="Screenshot 1" onclick="openFullImage(this, 0)">
+                    </div>
+                    <div class="image-card">
+                        <img src="images/image2.png" alt="Screenshot 2" onclick="openFullImage(this, 1)">
+                    </div>
+                    <div class="image-card">
+                        <img src="images/image3.png" alt="Screenshot 3" onclick="openFullImage(this, 2)">
+                    </div>
+                    <div class="image-card">
+                        <img src="images/savegames.gif" alt="Save Instance" onclick="openFullImage(this, 3)">
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                © 2024 Hyperion. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <div id="fullImageOverlay" class="full-image-overlay">
+        <span class="close-btn" onclick="closeFullImage()">×</span>
+        <img id="fullImage" src="" alt="Full size image">
+        <span class="prev" onclick="changeImage(-1)">❮</span>
+        <span class="next" onclick="changeImage(1)">❯</span>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
