@@ -129,60 +129,65 @@ function animateDownloadContent() {
     }
 }
 
-function openFullImage(img, index) {
+let currentImageIndex = 0;
+const mediaElements = document.querySelectorAll('.image-card img, .image-card video');
+
+function openFullImage(element, index) {
     const fullImageOverlay = document.getElementById('fullImageOverlay');
     const fullImage = document.getElementById('fullImage');
+    const fullVideo = document.getElementById('fullVideo');
     
-    if (fullImageOverlay && fullImage) {
-        fullImage.src = img.src;
+    if (fullImageOverlay && fullImage && fullVideo) {
+        if (element.tagName.toLowerCase() === 'img') {
+            fullImage.src = element.src;
+            fullImage.style.display = 'block';
+            fullVideo.style.display = 'none';
+        } else if (element.tagName.toLowerCase() === 'video') {
+            fullVideo.src = element.src;
+            fullVideo.style.display = 'block';
+            fullImage.style.display = 'none';
+            fullVideo.play();
+        }
         fullImageOverlay.style.display = 'flex';
         currentImageIndex = index;
 
-        gsap.fromTo(fullImage, 
-            { opacity: 0, scale: 0.9 }, 
-            { opacity: 1, scale: 1, duration: 0.5, ease: 'power3.out' }
+        gsap.fromTo(fullImageOverlay, 
+            { opacity: 0 }, 
+            { opacity: 1, duration: 0.5, ease: 'power3.out' }
         );
     }
 }
 
 function closeFullImage() {
     const fullImageOverlay = document.getElementById('fullImageOverlay');
-    const fullImage = document.getElementById('fullImage');
+    const fullVideo = document.getElementById('fullVideo');
 
-    if (fullImageOverlay && fullImage) {
-        gsap.to(fullImage, { 
+    if (fullImageOverlay) {
+        gsap.to(fullImageOverlay, { 
             opacity: 0, 
-            scale: 0.9, 
             duration: 0.5, 
             ease: 'power3.in',
             onComplete: () => {
                 fullImageOverlay.style.display = 'none';
+                if (fullVideo) {
+                    fullVideo.pause();
+                    fullVideo.currentTime = 0; 
+                }
             }
         });
     }
 }
 
 function changeImage(direction) {
-    const fullImage = document.getElementById('fullImage');
-    if (fullImage) {
-        currentImageIndex += direction;
-        if (currentImageIndex < 0) {
-            currentImageIndex = images.length - 1;
-        } else if (currentImageIndex >= images.length) {
-            currentImageIndex = 0;
-        }
-        
-        gsap.to(fullImage, { 
-            opacity: 0, 
-            scale: 0.9, 
-            duration: 0.3, 
-            ease: 'power2.in',
-            onComplete: () => {
-                fullImage.src = images[currentImageIndex].src;
-                gsap.to(fullImage, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' });
-            }
-        });
+    currentImageIndex += direction;
+    if (currentImageIndex < 0) {
+        currentImageIndex = mediaElements.length - 1;
+    } else if (currentImageIndex >= mediaElements.length) {
+        currentImageIndex = 0;
     }
+    
+    const element = mediaElements[currentImageIndex];
+    openFullImage(element, currentImageIndex);
 }
 
 function setupDevModal() {
@@ -254,9 +259,6 @@ function closeDevModal() {
     }
 }
 
-let currentImageIndex = 0;
-const images = document.querySelectorAll('.image-card img');
-
 document.addEventListener('DOMContentLoaded', () => {
     animateContent();
     animateTitle();
@@ -277,6 +279,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.download-content')) {
         animateDownloadContent();
     }
+    
+    const videos = document.querySelectorAll('.image-card video');
+    videos.forEach(video => {
+        video.addEventListener('mouseover', () => {
+            video.play();
+        });
+        video.addEventListener('mouseout', () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
 });
 
 const fullImageOverlay = document.getElementById('fullImageOverlay');

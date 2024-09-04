@@ -166,7 +166,8 @@ h2 {
     transform: scale(1.05);
 }
 
-.image-card img {
+.image-card img,
+.image-card video {
     width: 100%;
     height: auto;
     display: block;
@@ -186,7 +187,8 @@ h2 {
     justify-content: center;
 }
 
-.full-image-overlay img {
+.full-image-overlay img,
+.full-image-overlay video {
     max-width: 90%;
     max-height: 90%;
 }

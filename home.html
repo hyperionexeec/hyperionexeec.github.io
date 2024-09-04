@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hyperion</title>
+    <title>Hyperion Executor</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-    <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
     <div class="container">
@@ -22,10 +19,11 @@
                 </ul>
             </nav>
 
-            <h1 class="title">Unlock Your Full Potential with Hyperion Executor</h1>
-            <p class="subtitle">Elevate your Roblox experience with the latest PC script executor.</p>
+            <h1 id="unlock-your-full-potential-with-hyperion-executor" class="title">Unlock Your Full Potential with Hyperion Executor</h1>
 
-            <section class="key-features">
+            <p>Elevate your Roblox experience with the latest PC script executor.</p>
+
+            <div class="section key-features">
                 <h2>Key Features</h2>
                 <ul>
                     <li>Level 7 Execution</li>
@@ -33,11 +31,11 @@
                     <li>0 Vulnerabilities</li>
                     <li>Undetectable by Hyperion</li>
                 </ul>
-            </section>
+            </div>
 
             <a href="download" class="cta-button">Download Now</a>
 
-            <section class="gallery">
+            <div class="section gallery">
                 <h2>Gallery</h2>
                 <div class="image-gallery">
                     <div class="image-card">
@@ -50,10 +48,10 @@
                         <img src="images/image3.png" alt="Screenshot 3" onclick="openFullImage(this, 2)">
                     </div>
                     <div class="image-card">
-                        <img src="images/savegames.gif" alt="Save Instance" onclick="openFullImage(this, 3)">
+                        <video src="images/savegames.mp4" alt="Save Instance" onclick="openFullImage(this, 3)" loop muted></video>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <footer>
                 © 2024 Hyperion. All rights reserved.
@@ -64,10 +62,13 @@
     <div id="fullImageOverlay" class="full-image-overlay">
         <span class="close-btn" onclick="closeFullImage()">×</span>
         <img id="fullImage" src="" alt="Full size image">
+        <video id="fullVideo" src="" loop controls></video>
         <span class="prev" onclick="changeImage(-1)">❮</span>
         <span class="next" onclick="changeImage(1)">❯</span>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
