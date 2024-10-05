@@ -1,8 +1,8 @@
 const devInfo = {
-    jazzie: {
-        name: "Jazzie",
+    cherry: {
+        name: "Cherry",
         role: "Lead Developer and Owner",
-        bio: "Jazzie is the leader behind Hyperion, having over a decade of exploiting experience.",
+        bio: "Cherry is the leader behind Hyperion, having over a decade of exploiting experience.",
         links: [
             { name: "Discord", url: "https://discordapp.com/users/334467683896524800" },
         ]
