@@ -42,11 +42,41 @@
             color: var(--primary-color);
             margin: 0;
         }
+
+        .discord-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--content-background);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .discord-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .discord-button img {
+            width: 32px;
+            height: 32px;
+        }
     </style>
 </head>
 <body>
     <div class="content">
         <h1>Rewrite coming soon..</h1>
     </div>
+    <a href="https://discord.com/users/334467683896524800" class="discord-button" target="_blank">
+        <img src="discord.png" alt="Discord">
+    </a>
 </body>
 </html>
