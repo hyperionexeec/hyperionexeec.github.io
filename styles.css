@@ -1,0 +1,269 @@
+:root {
+    --bg-color: #111827;
+    --card-bg: #1F2937;
+    --text-primary: #FFFFFF;
+    --text-secondary: #9CA3AF;
+    --blue-gradient: linear-gradient(to right, #3B82F6, #8B5CF6);
+    --button-hover: linear-gradient(to right, #2563EB, #7C3AED);
+}
+
+[data-game='roblox'] { --game-gradient: linear-gradient(to right, #3B82F6, #60A5FA); } /* what colour sceheme even is roblox */
+[data-game='valorant'] { --game-gradient: linear-gradient(to right, #EF4444, #F87171); }
+[data-game='osu'] { --game-gradient: linear-gradient(to right, #EC4899, #F472B6); }
+[data-game='minecraft'] { --game-gradient: linear-gradient(to right, #10B981, #34D399); }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.container {
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.game-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.team-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--blue-gradient);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.team-button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.game-button:hover,
+.game-button.active {
+    color: var(--text-primary);
+    background: var(--game-gradient);
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.feature-header {
+    margin-right: -100px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding-top: 8px;
+}
+
+.game-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.game-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--game-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    white-space: nowrap;
+}
+
+.feature-content {
+    flex-grow: 1;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.feature-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--game-gradient);
+}
+
+.download-section {
+    text-align: center;
+}
+
+.download-button {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--blue-gradient);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-button:hover {
+    background: var(--button-hover);
+    transform: scale(1.05);
+}
+
+.version-info {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+}
+
+footer {
+    text-align: center;
+    margin-top: 6rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .game-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .card-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature-header {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
